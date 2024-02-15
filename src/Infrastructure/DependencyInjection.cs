@@ -21,11 +21,11 @@ public static class DependencyInjection
         }
         else
         {
-            var dbConnectionString = GetDbConnectionString(configuration.GetConnectionString("DefaultConnection"), path);
+            //var dbConnectionString = GetDbConnectionString(configuration.GetConnectionString("DefaultConnection"), path);
 
             #region RegisterSingletonContextFactory
                 services.AddPooledDbContextFactory<ApplicationDbPooledContext>(options =>
-                            options.UseSqlServer(dbConnectionString,
+                            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                                 sqlOptions =>
                                 {
                                     sqlOptions.EnableRetryOnFailure(
@@ -38,7 +38,7 @@ public static class DependencyInjection
             #endregion
 
             services.AddDbContext<ApplicationDbScopedContext>(options =>
-                            options.UseSqlServer(dbConnectionString,
+                            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                                 sqlOptions =>
                                 {
                                     sqlOptions.EnableRetryOnFailure(
