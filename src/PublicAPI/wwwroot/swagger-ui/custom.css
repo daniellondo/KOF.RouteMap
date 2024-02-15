@@ -1,0 +1,12 @@
+﻿.swagger-ui img {
+    content: url("https://ca.slack-edge.com/T06AX17MNHE-U06A84VPKEF-3c42e28e584b-512");
+    height: 70px;
+}
+.swagger-ui .topbar {
+    background-color: #FFFFFF;
+    padding: 10px 0;
+    color: #000000;
+}
+    .swagger-ui .topbar .download-url-wrapper .select-label {
+        color: #000000;
+    }
